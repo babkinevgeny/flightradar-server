@@ -1,5 +1,5 @@
 const CORS = {
-  origin: 'http://infinite-forest-56486.herokuapp.com',
+  origin: 'http://localhost:3000',
   credentials: true,
 };
 
