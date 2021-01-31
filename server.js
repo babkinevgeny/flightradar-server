@@ -10,6 +10,8 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const User =  require('./user');
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 
 const uri = "mongodb+srv://dbuser:dbpassword@cluster0.7s7qp.mongodb.net/rsclone?retryWrites=true&w=majority";
@@ -114,7 +116,7 @@ apiRouter.route('/flightStatus').get( async (req, res) => {
 
 app.use('/api', apiRouter);
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('used 3000 port for server');
 })
 
