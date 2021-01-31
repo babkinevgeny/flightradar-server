@@ -24,7 +24,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err)
 });
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://infinite-forest-56486.herokuapp.com',
   credentials: true,
 }));
 app.use(bodyParser.json());
@@ -37,6 +37,11 @@ app.use(session({
 app.use(cookieParser("rsclone"));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.get('/', (req, res) => {
+  res.send('<h1>Hello, FlightRadarClone</h1>')
+});
+
 require('./passportConfig')(passport);
 
 const authRouter = express.Router();
