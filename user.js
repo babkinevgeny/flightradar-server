@@ -12,7 +12,7 @@ const user = new mongoose.Schema({
                 code: String,
                 position: {
                     latitude: String,
-                    longitude: String
+                    longitude: String,
                 }
             },
             departureAirport: {
@@ -20,7 +20,7 @@ const user = new mongoose.Schema({
                 code: String,
                 position: {
                     latitude: String,
-                    longitude: String
+                    longitude: String,
                 }
             },
         }
