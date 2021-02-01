@@ -39,4 +39,12 @@ apiRouter.route('/flightStatus').get( async (req, res) => {
   await https.get(`https://data-live.flightradar24.com/clickhandler/?version=1.5&flight=${req.query.flightId}`, responseHandler(res))
 });
 
+apiRouter.route('/rating').get(async (req, res) => {
+  await https.get(`https://www.flightradar24.com/airports/myfr24-ratings?iata=${req.query.airportCode}`, responseHandler(res))
+});
+
+apiRouter.route('/flag').get(async (req, res) => {
+  await https.get(`https://www.countryflags.io/${req.query.countryCode}/flat/64.png`, responseHandler(res))
+});
+
 module.exports = apiRouter;

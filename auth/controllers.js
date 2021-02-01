@@ -20,8 +20,20 @@ const registerController = (req, res) => {
         password: hashedPassword,
       });
 
-      await newUser.save();
-      res.send(`User ${req.body.username} was created`);
+      await newUser.save((err) => {
+        if (err) {
+          throw err;
+        }
+
+        req.logIn(newUser, (err) => {
+          if (err) {
+            throw err;
+          }
+  
+          res.send(`User ${req.body.username} was successfully registered and authenticated`);
+        });
+
+      });      
     }
   });
 }
