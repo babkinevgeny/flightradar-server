@@ -1,5 +1,5 @@
 const CORS = {
-  origin: 'http://localhost:3000',
+  origin: '*',
   credentials: true,
 };
 
