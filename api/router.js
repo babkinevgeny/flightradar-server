@@ -47,4 +47,12 @@ apiRouter.route('/flag').get(async (req, res) => {
   await https.get(`https://www.countryflags.io/${req.query.countryCode}/flat/64.png`, responseHandler(res))
 });
 
+apiRouter.route('/flights').get(async (req, res) => {
+  await https.get(`https://data-live.flightradar24.com/zones/fcgi/feed.js?bounds=${req.query.bounds}&faa=1&satellite=1&mlat=1&flarm=1&adsb=1&gnd=0&air=1&vehicles=1&estimated=1&maxage=14400`, responseHandler(res))
+});
+
+apiRouter.route('/fly').get(async (req, res) => {
+  await https.get(`https://data-live.flightradar24.com/clickhandler/?version=1.5&flight=${req.query.flightCode}`, responseHandler(res))
+});
+
 module.exports = apiRouter;
