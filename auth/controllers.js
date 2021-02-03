@@ -63,8 +63,27 @@ const currentUserController = (req, res) => {
   res.send(req.user);
 };
 
+const saveFavorites = (req, res) => {
+  const { id, username, favorites } = req.body;
+
+  User.findOneAndUpdate(
+    { _id: id }, 
+    { $set: { favorites }}, 
+    async (err, doc) => {
+      if (err) {
+        throw err;
+      }
+
+      if (doc) {
+        console.log(`Favorites of ${username} were successfully updated`);
+        res.sendStatus(200);
+      }
+  });
+};
+
 module.exports = {
   registerController,
   loginController,
-  currentUserController
+  currentUserController,
+  saveFavorites
 };
