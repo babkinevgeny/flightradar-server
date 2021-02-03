@@ -11,18 +11,19 @@ const user = new mongoose.Schema({
                 name: String,
                 code: String,
                 position: {
-                    latitude: String,
-                    longitude: String,
+                    latitude: Number,
+                    longitude: Number,
                 }
             },
             departureAirport: {
                 name: String,
                 code: String,
                 position: {
-                    latitude: String,
-                    longitude: String,
+                    latitude: Number,
+                    longitude: Number,
                 }
             },
+            flightId: String,
         }
     ]
 });

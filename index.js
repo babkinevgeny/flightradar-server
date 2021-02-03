@@ -12,7 +12,7 @@ const DB = require('./db');
 
 const app = express();
 
-mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
   if (err) {
     throw err;
   } 
@@ -40,5 +40,5 @@ require('./passportConfig')(passport);
 app.get('/', (req, res) => res.send('<h1>Hello FlightRadarClone</h1>'));
 
 app.listen(PORT, () => {
-    console.log(`used ${PORT} port for server`);
+  console.log(`used ${PORT} port for server`);
 });
